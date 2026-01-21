@@ -264,19 +264,19 @@ const Home = () => {
       console.warn("Recognition error:", event.error);
       isRecognizingRef.current = false;
       setListening(false);
-    //   if (event.error !== "aborted" && isMounted && !isSpeakingRef.current) {
-    //     setTimeout(() => {
-    //       if (isMounted && !isRecognizingRef.current &&
-    // !isSpeakingRef.current ) {
-    //         try {
-    //           recognition.start();
-    //           console.log("Recognition restarted after error")
-    //         } catch (error) {
-    //           if (error.name !== "Invalidstate erroe") console.error(error)
-    //         }
-    //       }
-    //     }, 1000)
-    //   }
+      if (event.error !== "aborted" && isMounted && !isSpeakingRef.current) {
+        setTimeout(() => {
+          if (isMounted && !isRecognizingRef.current &&
+    !isSpeakingRef.current ) {
+            try {
+              recognition.start();
+              console.log("Recognition restarted after error")
+            } catch (error) {
+              if (error.name !== "Invalidstate erroe") console.error(error)
+            }
+          }
+        }, 1000)
+      }
     }
     recognition.onresult = async (e) => {
       const transcript = e.results[e.results.length - 1][0].transcript.trim();
