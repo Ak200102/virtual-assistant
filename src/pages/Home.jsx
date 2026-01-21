@@ -32,7 +32,7 @@ const Home = () => {
     }
   }
   const startRecognition = () => {
-    if (isRecognizingRef.current) return; // ✅ ADD THIS LINE
+    if (isRecognizingRef.current) return; // ADD THIS LINE
 
     try {
       recognitionRef.current.start();
@@ -104,9 +104,9 @@ const Home = () => {
     utterance.onend = () => {
       setAiText("")
       isSpeakingRef.current = false;
-      // setTimeout(() => {
-      //   startRecognition()
-      // }, 800)
+      setTimeout(() => {
+        startRecognition()
+      }, 800)
 
     };
     synth.cancel()
