@@ -66,7 +66,7 @@ const Home = () => {
     synth.cancel(); // keep as-is
 
     // 🔍 Detect Indian language by Unicode range
-    let lang = "en-IN";
+    let lang = "en-US";
 
     if (/[\u0900-\u097F]/.test(text)) lang = "hi-IN";       // Hindi / Marathi
     else if (/[\u0980-\u09FF]/.test(text)) lang = "bn-IN"; // Bengali
