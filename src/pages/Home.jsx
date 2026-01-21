@@ -106,7 +106,7 @@ const Home = () => {
       isSpeakingRef.current = false;
       setTimeout(() => {
         startRecognition()
-      }, 800)
+      }, 1000)
 
     };
     synth.cancel()
@@ -256,7 +256,7 @@ const Home = () => {
           } catch (error) {
             if (error.name !== "Invalidstate error") console.error(error)
           }
-        }, 1700)
+        }, 1000)
       }
     };
 
